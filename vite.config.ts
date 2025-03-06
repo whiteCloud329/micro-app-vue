@@ -11,9 +11,13 @@ function pathResolver(dir: string) {
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [vue(), vueDevTools()],
-    base: '/vue/',
+    base: '/sub-vue/',
+    build: {
+        target: 'esnext', // 确保代码支持 ES 模块
+        modulePreload: true,
+    },
     server: {
-        port: 3000,
+        port: 4001,
         headers: {
             'Access-Control-Allow-Origin': '*', // 允许跨域
         },
